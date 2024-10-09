@@ -84,6 +84,16 @@ class AdminUserController extends Controller
             $user->UpdatedAt = Carbon::now()->format('Y-m-d H:i:s');
             $user->save();
 
+            $sendNotification = [
+                'type'=>'User',
+                'notifiable_type'=>'User',
+                'notifiable_id'=>$request->UserID,
+                'data'=>'User Created Successfully',
+                'read_at'=>null,
+                'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+
+            ];
+
             $submenus = [];
             foreach ($request->selectedSubMenu as $row) {
                 $submenus[] = [
@@ -93,7 +103,7 @@ class AdminUserController extends Controller
             }
             SubMenuPermission::insert($submenus);
             DB::commit();
-            Notification::send($user, new RealTimeNotification());
+            Notification::send($user, new RealTimeNotification($sendNotification));
 
             return response()->json([
                 'status' => 'success',

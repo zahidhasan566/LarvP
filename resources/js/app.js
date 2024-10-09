@@ -10,6 +10,16 @@ import {baseurl} from './base_url'
 import Echo from 'laravel-echo';
 window.Pusher = require('pusher-js');
 
+let token = document.head.querySelector('meta[name="csrf-token"]');
+if (token) {
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+} else {
+    console.error('CSRF token not found');
+}
+
+window.axios = axios;
+
+
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: "f355fe36b8d8d50e37b3",
