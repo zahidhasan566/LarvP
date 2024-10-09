@@ -15,3 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/{app?}',[HomeController::class,'index'])->where('app','.*');
+//Route::post('/broadcasting/auth', function () {
+//    try {
+//        dd("sds");
+//        $user = JWTAuth::parseToken()->authenticate();
+//        return response()->json(['success' => true, 'user' => $user->id]);
+//    } catch (\Exception $e) {
+//        return response()->json(['error' => 'Unauthorized'], 401);
+//    }
+//});

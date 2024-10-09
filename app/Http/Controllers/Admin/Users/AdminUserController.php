@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Users;
 
+use App\Events\NotificationEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use App\Models\SubMenuPermission;
@@ -103,7 +104,9 @@ class AdminUserController extends Controller
             }
             SubMenuPermission::insert($submenus);
             DB::commit();
-            Notification::send($user, new RealTimeNotification($sendNotification));
+            //Notification::send($user, new RealTimeNotification($sendNotification));
+            $message = "You have a new message";
+            event(new NotificationEvent($message));
 
             return response()->json([
                 'status' => 'success',
