@@ -3,7 +3,7 @@
     <div class="wrapper-page">
       <div class="card overflow-hidden account-card mx-3">
         <div class="bg-gradient p-4 text-white text-center position-relative">
-          <h4 class="font-25 m-b-5">LA MONITORING </h4>
+          <h4 class="font-25 m-b-5">Covid Vaccine </h4>
         </div>
         <div class="account-card-content">
           <ValidationObserver v-slot="{ handleSubmit }">

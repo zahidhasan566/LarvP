@@ -6,6 +6,7 @@ import Login from '../views/auth/Login.vue';
 import {baseurl} from '../base_url'
 import NotFound from '../views/404/Index';
 import Registration from "../views/Covid/Registration.vue";
+import RegisterUserSearch from "../views/Covid/RegisterUserSearch.vue";
 
 import Users from '../views/users/Index';
 
@@ -70,9 +71,14 @@ const routes = [
         }
     },
     {
-        path: baseurl + 'covid-registration',
+        path: baseurl + 'covid-vaccine-registration',
         name: 'Registration',
         component: Registration,
+    },
+    {
+        path: baseurl + 'covid-vaccine-register-user-search',
+        name: 'RegisterUserSearch',
+        component: RegisterUserSearch,
     },
     {
         path: baseurl + '*',
