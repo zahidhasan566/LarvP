@@ -18,15 +18,27 @@ Project Setup
 - composer install (Command)
 - node install (Command)
 - php artisan key:generate (Command)
-- SQl server file import in SQL Server (Given in Project)
+- SQl server Schema Create in SQL Server (Given Schema database.sql in Project)
 - Make Database Connection in .env file
+
+## Project From Local View
+- http://localhost/LarvP/covid-vaccine-registration (For User Registration)
+- http://localhost/LarvP/covid-vaccine-register-user-search (For User Search)
+
 
 ## Project Live View
 - http://202.53.171.11/LarvP/covid-vaccine-registration (For User Registration)
 - http://202.53.171.11/LarvP/covid-vaccine-register-user-search (For User Search)
 
 ## Demo Data
-- NID number- 120120 (For Searching User Data) 
+- NID number- 120120 (For Searching User Data, iT has been registered) 
+- NID will be unique so, it can be checked in registration page to confirm it's existence
+- NID Number - 89557563 (For Not Scheduled User)
+
+## How Optimized Search Query
+- indexing (NID) column
+- Set Id and NID column as a composite primary key
+- Used DB Raw while searching a customer to overcome eloquent speed issue
 
 ## Scheduling Email System
 - php artisan email:send (Command For Email System, Already scheduled  for every Day  at 8 PM)
