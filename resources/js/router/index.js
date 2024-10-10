@@ -5,6 +5,7 @@ import Dashboard from '../views/dashboard/Index.vue';
 import Login from '../views/auth/Login.vue';
 import {baseurl} from '../base_url'
 import NotFound from '../views/404/Index';
+import Registration from "../views/Covid/Registration.vue";
 
 import Users from '../views/users/Index';
 
@@ -59,6 +60,7 @@ const routes = [
             checkToken(to, from, next);
         }
     },
+
     {
         path: baseurl + 'login',
         name: 'Login',
@@ -66,6 +68,11 @@ const routes = [
         beforeEnter(to, from, next) {
             activeToken(to, from, next);
         }
+    },
+    {
+        path: baseurl + 'covid-registration',
+        name: 'Registration',
+        component: Registration,
     },
     {
         path: baseurl + '*',

@@ -15,6 +15,11 @@ use Tymon\JWTAuth\JWTAuth;
 |
 */
 
+Route::group(['prefix' => 'covid'],function () {
+    Route::get('registration-supporting-data', [\App\Http\Controllers\CovidVaccine\RegistrationController::class, 'vaccineSupportingData']);
+    Route::get('vaccine-center-capacity/{vaccineCenterCode}', [\App\Http\Controllers\CovidVaccine\RegistrationController::class, 'checkVaccineCenterCapacity']);
+});
+
 Route::post('login', [\App\Http\Controllers\Auth\AuthController::class, 'login']);
 
 
